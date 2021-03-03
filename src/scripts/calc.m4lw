@@ -1,0 +1,94 @@
+WRITESC R0 "Operation: "
+WRITES R0
+
+READC R0
+WRITEC R0
+SUBC R0 0x30
+
+COMPAREC R0 0
+REACHS number-error
+COMPAREC R0 9
+REACHG number-error
+
+READC R1
+WRITEC R1
+
+READC R2
+WRITEC R2
+SUBC R2 0x30
+
+COMPAREC R2 0
+REACHS number-error
+COMPAREC R2 9
+REACHG number-error
+
+COMPAREC R1 0x2f
+REACHZ div
+COMPAREC R1 0x2d
+REACHZ sub
+COMPAREC R1 0x2b
+REACHZ sum
+COMPAREC R1 0x2a
+REACHZ mul
+REACH print-error
+
+LABEL sum
+    ADD R0 R2
+    REACH print-result
+
+LABEL sub
+    SUB R0 R2
+    REACH print-result
+
+LABEL mul
+    MULT R0 R2
+    REACH print-result
+
+LABEL div
+    DIV R0 R2
+    REACH print-result
+
+LABEL print-result
+    SETR R3 0x3d
+    WRITEC R3
+    ADDC R0 0x30
+    WRITEC R0
+
+    COMPAREC CA 0
+    REACHZ print-newline
+
+    SETR R3 32
+    WRITEC R3
+
+    SETR R3 0x28
+    WRITEC R3
+    ADDC CA 0x30
+    WRITEC CA
+    SETR R3 0x29
+    WRITEC R3
+
+    LABEL print-newline
+    SETR R3 0x0a
+    WRITEC R3
+    REACH exit
+
+LABEL print-error
+    SETR R0 0x0a
+    WRITEC R0
+    SETR R0 0x00
+    WRITESC R0 "Invalid operand."
+    WRITES R0
+    SETR R0 0x0a
+    WRITEC R0
+    REACH exit
+
+LABEL number-error
+    SETR R0 0x0a
+    WRITEC R0
+    SETR R0 0x00
+    WRITESC R0 "That's not a number, dumbass."
+    WRITES R0
+    SETR R0 0x0a
+    WRITEC R0
+
+LABEL exit

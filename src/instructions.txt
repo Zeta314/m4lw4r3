@@ -1,0 +1,68 @@
+// Comparison
+COMPAREC 	<register> <value>
+COMPARE 	<register> <register>
+
+// Data manipulation
+COPY		<register>	<register>
+LOADBC	    <address> 	<register>
+LOADB		<register>	<register>
+LOADIC	    <address> 	<register>
+LOADI		<register>	<register>
+SETR		<register> <value>
+SWAP		<register> <register>
+WRITEBC	    <register> <address>
+WRITEB	    <register> <register>
+WRITEIC 	<register> <address>
+WRITEI	    <register> <register>
+WRITESC     <register> <string>
+
+// IO
+READC		<register>
+READCM      <register>
+WRITEC	    <register>
+WRITECM     <register>
+WRITES      <register>
+
+// Jumps
+FOLLOW	    <register>
+JUMPGE	    <address>
+JUMPG		<address>
+JUMP		<address>
+JUMPNZ	    <address>
+JUMPSE	    <address>
+JUMPS		<address>
+JUMPZ		<address>
+
+// Labels
+CALL		<label>
+LABEL		<name>
+REACH		<label>
+RETURN
+
+// Binary math
+ANDC		<register>	<value>
+AND		    <register>	<register>
+NOT		    <register>
+ORC		    <register>	<value>
+OR		    <register> <register>
+XORC		<register>	<value>
+XOR		    <register> <register>
+
+// Math
+ADDC		<register>	<value>
+ADD		    <register> <register>
+DIVC		<register> <value>
+DIV		    <register> <register>
+MULTC		<register> <value>
+MULT		<register> <register>
+SUB		    <register> <register>
+SUBC		<register> <value>
+
+// Stack stuff
+POP         <register>
+PUSHC       <value>
+PUSH        <register>
+
+// Generic
+NULL
+HALT
