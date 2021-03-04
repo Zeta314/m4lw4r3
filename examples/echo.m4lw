@@ -1,19 +1,19 @@
 LABEL loop
-	READC R0
-	WRITEB R0 R1
-	ADDC R1 1
+	READC R0            ; Read a character from user
+	WRITEB R0 R1        ; Write it to memory pointed by R1
+	ADDC R1 1           ; Increment R1
 	
-	COMPAREC R0 0xd
-	REACHNZ loop
+	COMPAREC R0 0xd     ; character == '\r'?
+	REACHNZ loop        ;
 
-SETR R1 0
+SETR R1 0               ; Go back to the start
 LABEL print
-	LOADB R1 R0
-	WRITEC R0
-	ADDC R1 1
+	LOADB R1 R0         ; Load a byte from memory pointed by R1
+	WRITEC R0           ; Write it to the user
+	ADDC R1 1           ; Increment R1
 	
-	COMPAREC R0 0x00
-	REACHNZ print
+	COMPAREC R0 0x00    ; character == '\0'?
+	REACHNZ print       ;
 
-SETR R2 0x0a
-WRITEC R2
+SETR R2 0x0a            ; \n
+WRITEC R2               ;

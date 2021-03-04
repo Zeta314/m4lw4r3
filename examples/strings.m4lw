@@ -1,4 +1,4 @@
-WRITESC R0 "PROVA1234 PROVAAAAAAAAAAAAAAAA!"
-WRITES R0
-SETR R0 0x0a
-WRITEC R0
+WRITESC R0 "PROVA1234 PROVAAAAAAAAAAAAAAAA!"    ; Write the string to the memory
+WRITES R0                                       ; Write the string to the user
+SETR R0 0x0a                                    ; \n
+WRITEC R0                                       ;
