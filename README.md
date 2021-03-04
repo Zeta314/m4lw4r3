@@ -18,7 +18,7 @@
   <p align="center">
     It's an assembly-like language that I made for fun, while in quarantine.
     <br />
-    <a href="https://github.com/Zeta314/m4lw4r3"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Zeta314/m4lw4r3/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Zeta314/m4lw4r3/issues">Report Bug</a>
