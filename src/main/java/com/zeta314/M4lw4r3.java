@@ -59,7 +59,7 @@ public class M4lw4r3 {
         Registers.INSTRUCTION_POINTER.setValue(0);
 
         // Start executing the code now
-        while (Registers.INSTRUCTION_POINTER.getValue() < instructions.size()) {
+        while (Registers.INSTRUCTION_POINTER.getValue() < instructions.size() && Registers.HALT_FLAG.getValue() == 0) {
             Instruction instruction = instructions.get(Registers.INSTRUCTION_POINTER.getValue());
 
             if (!instruction.getDefinition().isPreprocessed()) {

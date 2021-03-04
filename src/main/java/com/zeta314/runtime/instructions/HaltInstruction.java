@@ -2,6 +2,7 @@ package com.zeta314.runtime.instructions;
 
 import com.zeta314.exceptions.runtime.InstructionException;
 import com.zeta314.runtime.base.InstructionDefinition;
+import com.zeta314.runtime.environment.Registers;
 
 import java.lang.reflect.Type;
 
@@ -17,6 +18,6 @@ public class HaltInstruction extends InstructionDefinition {
 
     @Override
     public void execute(Object[] args) throws InstructionException {
-        System.exit(2);
+        Registers.HALT_FLAG.setValue(1);
     }
 }

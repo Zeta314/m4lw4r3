@@ -17,6 +17,7 @@ public class Registers {
     public static final Register R5 = new Register("R5", 0);
     public static final Register R6 = new Register("R6", 0);
 
+    public static final Register HALT_FLAG = new Register("HLT", 0);
     public static final Register CARRY = new Register("CA", 0);
     public static final Register ZERO_FLAG = new Register("ZF", 0);
 
