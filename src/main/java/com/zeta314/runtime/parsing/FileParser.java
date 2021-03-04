@@ -28,9 +28,10 @@ public class FileParser {
 
         String fileData = Files.readString(file.toPath());
         fileData = fileData.trim();
+        fileData = fileData.replaceAll(";.*", ""); // Filter out comments
         fileData = fileData.replaceAll("[\r\n \t]", " ");
-        fileData = fileData.replaceAll(" +", " ");
-        fileData = fileData.trim();
+        fileData = fileData.replaceAll(" +", " "); // Remove repeated whitespaces
+        fileData = fileData.trim(); // Remove orphan whitespaces
 
         String[] splitted = Shlex.shellSplit(fileData);
         List<Instruction> instructions = new ArrayList<>();

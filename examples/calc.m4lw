@@ -1,94 +1,94 @@
 WRITESC R0 "Operation: "
 WRITES R0
 
-READC R0
-WRITEC R0
-SUBC R0 0x30
+READC R0                    					; Read a number
+WRITEC R0                   					; Echo it to the user
+SUBC R0 0x30                					; Subtract 0x30 (ascii '0')
 
-COMPAREC R0 0
-REACHS number-error
-COMPAREC R0 9
-REACHG number-error
+COMPAREC R0 0               					; Check if the number is less than 0
+REACHS number-error         					;
+COMPAREC R0 9               					; Check if the number is more than 9
+REACHG number-error         					;
 
-READC R1
-WRITEC R1
+READC R1                    					; Read the operand
+WRITEC R1                   					; Echo it to the user
 
-READC R2
-WRITEC R2
-SUBC R2 0x30
+READC R2                    					; Read a number
+WRITEC R2                   					; Echo it to the user
+SUBC R2 0x30                					; Subtract 0x30 (ascii '0')
 
-COMPAREC R2 0
-REACHS number-error
-COMPAREC R2 9
-REACHG number-error
+COMPAREC R2 0               					; Check if the number is less than 0
+REACHS number-error         					;
+COMPAREC R2 9               					; Check if the number is more than 9
+REACHG number-error         					;
 
-COMPAREC R1 0x2f
-REACHZ div
-COMPAREC R1 0x2d
-REACHZ sub
-COMPAREC R1 0x2b
-REACHZ sum
-COMPAREC R1 0x2a
-REACHZ mul
-REACH print-error
+COMPAREC R1 0x2f            					; Operand is /?
+REACHZ div                  					;
+COMPAREC R1 0x2d            					; Operand is -?
+REACHZ sub                  					;
+COMPAREC R1 0x2b            					; Operand is +?
+REACHZ sum                  					;
+COMPAREC R1 0x2a            					; Operand is *?
+REACHZ mul                  					;
+REACH print-error           					; The user gave us an invalid operand
 
 LABEL sum
-    ADD R0 R2
+    ADD R0 R2               					; Add the two terms
     REACH print-result
 
 LABEL sub
-    SUB R0 R2
+    SUB R0 R2               					; Subtract the two terms
     REACH print-result
 
 LABEL mul
-    MULT R0 R2
+    MULT R0 R2              					; Multiply the two terms
     REACH print-result
 
 LABEL div
-    DIV R0 R2
+    DIV R0 R2               					; Divide the two terms
     REACH print-result
 
 LABEL print-result
-    SETR R3 0x3d
-    WRITEC R3
-    ADDC R0 0x30
-    WRITEC R0
+    SETR R3 0x3d            					; =
+    WRITEC R3               					;
+    ADDC R0 0x30            					; Convert the result to ASCII
+    WRITEC R0               					; Write it to the user
 
-    COMPAREC CA 0
-    REACHZ print-newline
+    COMPAREC CA 0           					; Check if there's any carry
+    REACHZ print-newline    					; Just print a new line and exit
 
-    SETR R3 32
-    WRITEC R3
+    SETR R3 32              					; Print a whitespace
+    WRITEC R3               					;
 
-    SETR R3 0x28
-    WRITEC R3
-    ADDC CA 0x30
-    WRITEC CA
-    SETR R3 0x29
-    WRITEC R3
+    SETR R3 0x28            					; (
+    WRITEC R3               					;
+    ADDC CA 0x30            					; Convert the carry to ASCII
+    WRITEC CA               					; Write it to the user
+    SETR R3 0x29            					; )
+    WRITEC R3               					;
 
-    LABEL print-newline
-    SETR R3 0x0a
-    WRITEC R3
-    REACH exit
+    LABEL print-newline     					;
+    SETR R3 0x0a            					; \n
+    WRITEC R3               					; 
+    REACH exit              					; Exit the script
 
 LABEL print-error
-    SETR R0 0x0a
-    WRITEC R0
-    SETR R0 0x00
-    WRITESC R0 "Invalid operand."
-    WRITES R0
-    SETR R0 0x0a
-    WRITEC R0
-    REACH exit
+    SETR R0 0x0a            					; \n
+    WRITEC R0               					;
+    SETR R0 0x00            					; Set R0 to point at memory 0x00000000
+    WRITESC R0 "Invalid operand."   			; Write the string to memory
+    WRITES R0               					; Print the string
+    SETR R0 0x0a                    			; \n
+    WRITEC R0                       			;
+    REACH exit                      			; Exit the script
 
 LABEL number-error
-    SETR R0 0x0a
-    WRITEC R0
-    SETR R0 0x00
-    WRITESC R0 "That's not a number, dumbass."
-    WRITES R0
-    SETR R0 0x0a
-    WRITEC R0
+    SETR R0 0x0a                    			; \n
+    WRITEC R0                       			;
+    SETR R0 0x00                    			; Set R0 to point at memory 0x00000000
+    WRITESC R0 "That's not a number, dumbass."  ; Write the string to memory
+    WRITES R0                                   ; Print the string
+    SETR R0 0x0a                                ; \n
+    WRITEC R0                                   ;
 
 LABEL exit
