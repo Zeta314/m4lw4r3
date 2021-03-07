@@ -100,7 +100,7 @@ public class M4lw4r3 {
         } else {
             try {
                 instructions = FileParser.readInstructions(cmd.getOptionValue("file"));
-            } catch (IOException ex) {
+            } catch (IOException | RegistryException | ParserException ex) {
                 System.err.printf("Error: %s\n", ex.getMessage());
                 return;
             }
