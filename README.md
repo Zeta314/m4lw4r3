@@ -54,7 +54,7 @@ about how machines work (and to use some of the free time that I had while in qu
 
 The language is interpreted, the scripts are directly parsed from the interpreter and executed immediately after.
 Although it's purely interpreted, scripts can be compiled using the builtin compiler.  
-See the [documentation][https://github.com/Zeta314/m4lw4r3/wiki] for more informations.
+_For more informations, please refer to the [Documentation](https://github.com/Zeta314/m4lw4r3/wiki)_
 
 ### Built With
 
