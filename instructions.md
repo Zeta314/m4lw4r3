@@ -9,6 +9,13 @@ This a list of all the available m4lw4r3 instructions.
 |   COMPAREC  	|  REGISTER  	|  CONSTANT  	| COMPAREC R0 0x1234 	|
 |   COMPARE   	|  REGISTER  	|  REGISTER  	|    COMPARE R0 R1   	|
 
+## Debug
+
+| Instruction 	| Argument 1 	| Argument 2 	|       Example      	|
+|:-----------:	|:----------:	|:----------:	|:------------------:	|
+|   DBGDUMP  	|            	|            	|       DBGDUMP         |
+
+
 ## Data manipulation
 
 | Instruction 	| Argument 1 	| Argument 2 	|         Example        	|

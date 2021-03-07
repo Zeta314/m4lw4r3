@@ -135,6 +135,10 @@ public class M4lw4r3 {
         }
         Registers.INSTRUCTION_POINTER.setValue(0);
 
+        // Enable the DEBUG register if it's needed
+        if (cmd.hasOption("debug"))
+            Registers.DEBUG_FLAG.setValue(1);
+
         // Start executing the code now
         while (Registers.INSTRUCTION_POINTER.getValue() < instructions.length && Registers.HALT_FLAG.getValue() == 0) {
             Instruction instruction = instructions[Registers.INSTRUCTION_POINTER.getValue()];

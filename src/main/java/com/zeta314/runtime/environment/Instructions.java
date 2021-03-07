@@ -7,6 +7,7 @@ import com.zeta314.runtime.instructions.NullInstruction;
 import com.zeta314.runtime.instructions.comparison.CompareConstantInstruction;
 import com.zeta314.runtime.instructions.comparison.CompareInstruction;
 import com.zeta314.runtime.instructions.data.*;
+import com.zeta314.runtime.instructions.debug.DumpInstruction;
 import com.zeta314.runtime.instructions.io.*;
 import com.zeta314.runtime.instructions.jumps.*;
 import com.zeta314.runtime.instructions.labels.*;
@@ -39,6 +40,9 @@ public class Instructions {
     public static final InstructionDefinition WRITEIC = new WriteIntegerConstantInstruction();
     public static final InstructionDefinition WRITEI = new WriteIntegerInstruction();
     public static final InstructionDefinition WRITESC = new WriteStringConstantInstruction();
+
+    // Debug
+    public static final InstructionDefinition DBGDUMP = new DumpInstruction();
 
     // IO
     public static final InstructionDefinition READCM = new ReadCharacterMemoryInstruction();
