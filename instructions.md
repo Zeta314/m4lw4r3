@@ -39,9 +39,11 @@ This a list of all the available m4lw4r3 instructions.
 | Instruction 	| Argument 1 	| Argument 2 	|   Example   	|
 |:-----------:	|:----------:	|:----------:	|:-----------:	|
 |    FOLLOW   	|  REGISTER  	|            	|  FOLLOW R0  	|
+|    JUMPE    	|   ADDRESS  	|            	|  JUMPE 0x04 	|
 |    JUMPGE   	|   ADDRESS  	|            	| JUMPGE 0x04 	|
 |    JUMPG    	|   ADDRESS  	|            	|  JUMPG 0x04 	|
 |     JUMP    	|   ADDRESS  	|            	|  JUMP 0x04  	|
+|    JUMPNE   	|   ADDRESS  	|            	| JUMPNE 0x04 	|
 |    JUMPNZ   	|   ADDRESS  	|            	| JUMPNZ 0x04 	|
 |    JUMPSE   	|   ADDRESS  	|            	| JUMPSE 0x04 	|
 |    JUMPS    	|   ADDRESS  	|            	|  JUMPS 0x04 	|
@@ -52,8 +54,16 @@ This a list of all the available m4lw4r3 instructions.
 |:-----------:	|:----------:	|:----------:	|:------------------:	|
 |     CALL    	|    LABEL   	|            	|  CALL SCRIPT_START 	|
 |    LABEL    	|   STRING   	|            	|     LABEL loop     	|
-|    REACH    	|    LABEL   	|            	| REACH SCRIPT_START 	|
-|    RETURN   	|            	|            	|       RETURN       	|
+|    REACHE    	|   ADDRESS  	|            	|  REACHE 0x04 	|
+|    REACHGE   	|   ADDRESS  	|            	| REACHGE 0x04 	|
+|    REACHG    	|   ADDRESS  	|            	|  REACHG 0x04 	|
+|     REACH    	|   ADDRESS  	|            	|  REACH 0x04  	|
+|    REACHNE   	|   ADDRESS  	|            	| REACHNE 0x04 	|
+|    REACHNZ   	|   ADDRESS  	|            	| REACHNZ 0x04 	|
+|    REACHSE   	|   ADDRESS  	|            	| REACHSE 0x04 	|
+|    REACHS    	|   ADDRESS  	|            	|  REACHS 0x04 	|
+|    REACHZ    	|   ADDRESS  	|            	|  REACHZ 0x04 	|
+|    RETURN   	|            	|            	|       RETURN  |
 
 ## Binary math
 | Instruction 	| Argument 1 	| Argument 2 	|    Example   	|
