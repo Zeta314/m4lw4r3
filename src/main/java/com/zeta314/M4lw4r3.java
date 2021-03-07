@@ -46,6 +46,7 @@ public class M4lw4r3 {
             return;
         }
 
+        // Decompile the provided script
         if (cmd.hasOption("decompile")) {
             byte[] scriptData;
             try {
@@ -89,6 +90,7 @@ public class M4lw4r3 {
         }
 
         Instruction[] instructions;
+        // If the provided script is compiled, decompile it
         if (cmd.hasOption("compiled")) {
             try {
                 byte[] bytecode = FileUtils.readBytes(cmd.getOptionValue("file"));
@@ -106,6 +108,7 @@ public class M4lw4r3 {
             }
         }
 
+        // Compile the provided script
         if (cmd.hasOption("compile")) {
             File outputFile = new File(cmd.getOptionValue("compile"));
 
