@@ -5,28 +5,16 @@ import com.zeta314.exceptions.runtime.ParserException;
 import com.zeta314.runtime.base.Instruction;
 import com.zeta314.runtime.base.InstructionDefinition;
 import com.zeta314.runtime.environment.Instructions;
+import com.zeta314.util.FileUtils;
 import com.zeta314.util.Shlex;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileParser {
-    public static List<Instruction> readInstructions(String path) throws IOException, RegistryException, ParserException {
-        File file = new File(path);
-
-        if (!file.exists()) {
-            throw new FileNotFoundException("The provided path does not exist.");
-        }
-
-        if (!file.isFile()) {
-            throw new IOException("The provided path does not lead to a file.");
-        }
-
-        String fileData = Files.readString(file.toPath());
+    public static Instruction[] readInstructions(String path) throws IOException, RegistryException, ParserException {
+        String fileData = FileUtils.readFile(path);
         fileData = fileData.trim();
         fileData = fileData.replaceAll(";.*", ""); // Filter out comments
         fileData = fileData.replaceAll("[\r\n \t]", " ");
@@ -62,6 +50,6 @@ public class FileParser {
             instructions.add(new Instruction(definition, arguments.toArray()));
         }
 
-        return instructions;
+        return instructions.toArray(new Instruction[0]);
     }
 }
