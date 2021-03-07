@@ -49,9 +49,11 @@ public class Instructions {
 
     // Jumps
     public static final InstructionDefinition FOLLOW = new FollowInstruction();
+    public static final InstructionDefinition JUMPE = new JumpEqualInstruction();
     public static final InstructionDefinition JUMPGE = new JumpGreaterEqualInstruction();
     public static final InstructionDefinition JUMPG = new JumpGreaterInstruction();
     public static final InstructionDefinition JUMP = new JumpInstruction();
+    public static final InstructionDefinition JUMPNE = new JumpNotEqualInstruction();
     public static final InstructionDefinition JUMPNZ = new JumpNotZeroInstruction();
     public static final InstructionDefinition JUMPSE = new JumpSmallerEqualInstruction();
     public static final InstructionDefinition JUMPS = new JumpSmallerInstruction();
@@ -60,9 +62,11 @@ public class Instructions {
     // Labels
     public static final InstructionDefinition CALL = new CallInstruction();
     public static final InstructionDefinition LABEL = new DefineLabelInstruction();
+    public static final InstructionDefinition REACHE = new ReachEqualInstruction();
     public static final InstructionDefinition REACHGE = new ReachGreaterEqualInstruction();
     public static final InstructionDefinition REACHG = new ReachGreaterInstruction();
     public static final InstructionDefinition REACH = new ReachInstruction();
+    public static final InstructionDefinition REACHNE = new ReachNotEqualInstruction();
     public static final InstructionDefinition REACHNZ = new ReachNotZeroInstruction();
     public static final InstructionDefinition REACHSE = new ReachSmallerEqualInstruction();
     public static final InstructionDefinition REACHS = new ReachSmallerInstruction();
